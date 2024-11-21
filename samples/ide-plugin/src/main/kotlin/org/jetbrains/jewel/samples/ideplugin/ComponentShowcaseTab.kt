@@ -27,6 +27,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.intellij.ide.BrowserUtil
 import com.intellij.openapi.project.Project
@@ -194,6 +195,10 @@ private fun RowScope.ColumnOne() {
 
         var sliderValue by remember { mutableFloatStateOf(.15f) }
         Slider(sliderValue, { sliderValue = it }, steps = 5)
+
+        OutlinedButton(onClick = { throw RuntimeException("BOOM!") }) {
+            Text("DO NOT PRESS!", color = Color.Red, fontWeight = FontWeight.Bold)
+        }
     }
 }
 
